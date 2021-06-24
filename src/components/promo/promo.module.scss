@@ -1,0 +1,80 @@
+@import "../../../styles/media";
+
+:local {
+   .promo {
+      margin: 145px 0 60px;
+      height: 600px;
+
+      @include media("max", "md") {
+         margin: 40px 0;
+      }
+   }
+
+   .promoWrapper {
+      min-height: 100%;
+      display: flex;
+
+      @include media("max", "md") {
+         flex-direction: column;
+      }
+   }
+
+   .promoTextColumn {
+      flex: 1 1 50%;
+
+      &:first-child {
+         padding-right: 20px;
+
+         @include media("max", "md") {
+            flex: 0 1 100%;
+            padding-right: 0;
+            margin-bottom: 20px;
+         }
+      }
+   }
+
+   .promoTextTitle {
+      margin-bottom: 30px;
+      font-size: 64px;
+      line-height: 100%;
+      font-weight: 400px;
+      color: #101019;
+      font-family: 'Roboto', sans-serif;  
+
+      @include media("max", "xl") {
+         font-size: 44px;
+      }
+      @include media("max", "md") {
+         margin-bottom: 20px;
+      }
+   }
+
+   .promoTextDescription {
+      font-size: 24px;
+      line-height: 100%;
+      color: #101019;
+      font-family: 'Roboto', sans-serif;  
+
+      @include media("max", "md") {
+         font-size: 20px;
+      }
+   }
+
+   .promoImgColumn {
+      position: relative;
+      flex: 1 1 50%;
+      overflow: hidden;
+
+      @include media("max", "md") {
+         flex: 1 1 100%;
+      }
+   }
+
+   .promoImg {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+   }
+}

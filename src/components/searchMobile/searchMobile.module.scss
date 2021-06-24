@@ -1,0 +1,18 @@
+@import "../../../styles/media";
+
+:local {
+   .searchMobile {
+      margin: 20px 0;
+      padding: 10px;
+      border-radius: 8px;
+      width: 100%;
+      border: 1px solid rgba(224, 225, 226, .2);
+      color: #ffffff;
+      background-color: transparent;
+   }
+
+   .searchMobile::placeholder {
+      color: #ffffff;
+      opacity: .5;
+   }
+}

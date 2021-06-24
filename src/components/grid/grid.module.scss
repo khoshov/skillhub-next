@@ -1,0 +1,17 @@
+@import "../../../styles/media";
+
+:local {
+    .grid {
+        max-width: 1440px;
+        min-width: 375px;
+        width: 100%;
+        margin: 0 auto;
+        padding-left: 56px;
+        padding-right: 56px;
+
+        @include media("max", "md") {
+            padding-left: 25px;
+            padding-right: 25px;
+         }
+    }
+}

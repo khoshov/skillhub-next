@@ -1,0 +1,20 @@
+@import "../../../styles/media";
+
+:local {
+    .header {
+        margin: 8px 8px 0 8px;
+        border-radius: 14px;
+        background: #10101A;
+        color: white;
+        box-shadow: 0px 4px 20px rgba(14, 6, 35, 0.25);
+    }
+
+    .headerContentWrapper {
+        position: relative;
+        z-index: 1;
+        min-height: 64px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between; 
+    }
+}

@@ -1,0 +1,118 @@
+@import "../../../styles/media";
+
+:local {
+   .menu {
+      padding: 0 10px;
+      font-family: 'Roboto', sans-serif;  
+
+      @include media("max", "md") {
+         display: none;
+      }
+   }
+   
+   .menuList {
+      display: flex;
+   }
+
+   .subMenuList {
+      display: none;
+   }
+
+   .menuListItem {
+      position: relative;
+      padding: 20px 5px;
+      opacity: .6;
+      transition: opacity .3s ease;
+
+      &:after {
+         content: ''; 
+         position: absolute; 
+         right: -25px;
+         bottom: 21px;
+         border: 6px solid transparent;
+         border-top: 6px solid #ffffff;
+         border-radius: 3px;
+
+         @include media("max", "lg") {
+            display: none;
+         }
+      }
+      &:before {
+         content: '';
+         position: absolute;
+         bottom: 0;
+         left: 0;
+         width: 100%;
+         height: 4px;
+         background: none;
+      }
+
+      &.active {
+         opacity: 1;
+         transition: opacity .3s ease-out;
+
+         &:before {
+            background-color: #773FFF;
+         }
+      }
+
+      &:hover {
+         opacity: 1;
+         transition: opacity .3s ease-out;
+
+         &:before {
+            background-color: #773FFF;
+         }
+
+         .subMenuList {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            left: -12px;
+            top: 75px;
+            padding: 16px;
+            min-width: 208px;
+            border-radius: 14px;
+            background-color: #10101A;
+
+            &:before {
+               content: '';
+               position: absolute;
+               top: -100%;
+               left: 0;
+               width: 50%;
+               height: 100%;
+               background-color: transparent;
+               cursor: pointer;
+            }
+         }
+
+         .subMenuListItem {
+            opacity: .6;
+            cursor: pointer;
+            transition: opacity .3s ease;
+
+            &:hover {
+               opacity: 1;
+            }
+
+            &:not(:last-child) {
+               margin-bottom: 6px;
+            }
+         }
+      }
+   }
+
+   .menuList .menuListItem:not(:last-child) {
+      margin-right: 50px;
+
+      @include media("max", "lg") {
+         margin-right: 20px;
+      }
+   }
+
+   .link {
+      position: relative;
+      z-index: 1;
+   }
+}

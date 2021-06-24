@@ -1,0 +1,19 @@
+@import "../../../styles/media";
+
+:local {
+   .languageMobileWrapper {
+      margin-top: 35px;
+
+      // @include media("max", "md") {
+      //    display: none;
+      // }
+   }
+
+   .languageMobileItem {
+      font-family: 'Roboto', sans-serif;
+   }
+
+   .languageMobileItem:not(:last-child) {
+      padding-left: 0;
+   }
+}
