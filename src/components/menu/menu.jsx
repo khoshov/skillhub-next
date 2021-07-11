@@ -1,7 +1,10 @@
 import React, {Fragment} from 'react';
+import { connect } from "react-redux"
+
 import Link from 'next/link';
 import classNames from 'classnames';
 import {useRouter} from 'next/router';
+import {menuAction} from '../../reducers/reducer';
 
 import s from './menu.module.scss';
 
@@ -25,8 +28,16 @@ const edges = [
     }
 ]
 
-export const Menu = () => {
+export const Menu = ({state, menuAction: testMenuAction}) => {
+    React.useEffect(() => {
+        testMenuAction([{name: 'name1', slug: 'name1', children: {name: 'name sub 1'}}, {name: 'name 2'}])
+    }, [])
     const {route} = useRouter();
+    console.log('state', state)
+    console.log('menu', state.reducerMenu)
+    const menus = state.reducerMenu.menus;
+    console.log('menus', menus)
+    console.log('edges', edges)
 
     return (
         <nav className={s.menu}>
@@ -67,3 +78,9 @@ export const Menu = () => {
         </nav>
     );
 };
+
+const mapStateToProps = state => ({
+    state: state
+})
+
+export const MainMenu = connect(mapStateToProps, {menuAction})(Menu)

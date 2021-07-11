@@ -1,0 +1,17 @@
+@import "../../../styles/media";
+
+:local {
+  .button {
+    padding: 16px 34px;
+    box-sizing: border-box;
+    border-radius: 14px;
+    font-size: 20px;
+    line-height: 100%;
+    background: #773FFF;
+    color: #E0E1E2;
+
+    @include media("max", "sm") {
+     min-width: 100%;
+    }
+  }
+}

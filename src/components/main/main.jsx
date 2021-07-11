@@ -3,14 +3,17 @@ import { connect } from "react-redux"
 
 import {Grid} from 'components/grid/grid';
 import {Promo} from 'components/promo/promo';
-import {testAction} from '../../reducers/reducer';
+import {testAction, testAction1, menuAction} from '../../reducers/reducer';
 
 import s from './main.module.scss';
 
-export const MainComponent = ({state, testAction: testActionWow}) => {
+export const MainComponent = ({state, testAction: testActionWow, testAction1: testActionWow1, menuAction: testMenuAction}) => {
     React.useEffect(() => {
-        testActionWow()
+        // testActionWow()
+        // testActionWow1('Test')
+        // testMenuAction([{hui: 2}, {pizda: 'daaa'}])
     }, [])
+    // console.log('state', state)
     return (
         <main className={s.main}>
             <Grid>
@@ -21,7 +24,7 @@ export const MainComponent = ({state, testAction: testActionWow}) => {
 };
 
 const mapStateToProps = state => ({
-    state,
+    state: state
 })
 
-export const Main = connect(mapStateToProps, {testAction})(MainComponent)
+export const Main = connect(mapStateToProps, {testAction, testAction1, menuAction})(MainComponent)
