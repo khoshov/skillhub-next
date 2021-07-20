@@ -16,7 +16,7 @@ export const Promo = () => {
                     <Button/>
                 </div>
                 <div className={s.promoImgColumn}>
-                    <img className={s.promoImg} src="../../../public/images/main.png" alt="promo" />
+                    <img className={s.promoImg} src="./images/1.png" alt="promo" />
                 </div>
             </div>
         </section>
