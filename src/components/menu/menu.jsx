@@ -4,29 +4,8 @@ import { connect } from "react-redux"
 import Link from 'next/link';
 import classNames from 'classnames';
 import {useRouter} from 'next/router';
-import {menuAction} from '../../reducers/reducer';
 
 import s from './menu.module.scss';
-
-const edges = [
-    {
-        node: {
-            sortOrder: 0,
-            name: 'name1',
-            slug: 'name1',
-            children: {
-                edges: [
-                    {
-                        node: {
-                            name: 'name sub',
-                            slug: 'name sub',
-                        }
-                    }
-                ]
-            }
-        }
-    }
-]
 
 export const Menu = ({list = []}) => {
     const {route} = useRouter();
@@ -75,4 +54,4 @@ const mapStateToProps = state => ({
     list: state.categories.results
 })
 
-export const MainMenu = connect(mapStateToProps, {menuAction})(Menu)
+export const MainMenu = connect(mapStateToProps)(Menu)
