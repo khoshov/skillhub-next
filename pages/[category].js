@@ -1,10 +1,10 @@
 import {FiltersAndCourses} from 'components/filtersAndCourses/filtersAndCourses';
-import {Header} from 'components/header/header';
+import {HeaderConnected} from 'components/header/header';
 
 export default function Category() {
     return (
         <>
-            <Header />
+            <HeaderConnected />
             <FiltersAndCourses />
         </>
     );

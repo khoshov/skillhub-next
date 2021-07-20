@@ -1,0 +1,63 @@
+:local {
+    .container {
+        font-family: 'Roboto', sans-serif;
+        font-size: 16px;
+        line-height: 1.5;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    @supports(-webkit-appearance: none) or (-moz-appearance: none) {
+        .input {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            outline: none;
+        }
+    }
+
+    .input {
+        position: relative;
+        width: 20px;
+        height: 20px;
+        margin: 0 8px 0 61px;
+        background: #FFFFFF;
+        border: 2px solid #E0E1E2;
+        box-sizing: border-box;
+        border-radius: 4px;
+        transition: border .3s ease, background-color .3s ease;
+        cursor: pointer;
+
+        &:not(:disabled):hover,
+        &:focus {
+            border-color: #773FFF;
+        }
+
+        &:disabled {
+            cursor: not-allowed;
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            display: none;
+            background: url("./svg/check.svg");
+            background-size: cover;
+            width: 100%;
+            height: 100%;
+        }
+
+        &:checked {
+            background-color: #773FFF;
+            border-color: #773FFF;
+
+            &::before {
+                display: block;
+            }
+        }
+    }
+
+    .labelText {
+        color: #101019;
+    }
+}

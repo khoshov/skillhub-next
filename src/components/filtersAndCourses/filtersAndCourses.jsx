@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import {FiltersConnected} from 'components/filters/filters';
 
 import {Grid} from 'components/grid/grid';
 
@@ -14,21 +15,10 @@ export const FiltersAndCourses = ({
     format = '',
     level = '',
 }) => {
-    const [filterState, setFilter] = useState({
-        name,
-        isOnlyFree,
-        durationFrom,
-        durationTo,
-        priceFrom,
-        priceTo,
-        format,
-        level,
-    });
-    const [categoryId, setCategoryId] = useState('');
-
     return (
         <main className={s.main}>
             <Grid>
+                <FiltersConnected />
             </Grid>
         </main>
     );

@@ -1,0 +1,29 @@
+:local {
+    .button {
+        background: #FFFFFF;
+        border: 1px solid #E0E1E2;
+        box-sizing: border-box;
+        border-radius: 8px;
+        padding: 4px 8px;
+        outline: none;
+        margin-bottom: 8px;
+        font-family: "Roboto";
+        font-weight: 500;
+        font-size: 16px;
+        color: #101019;
+        white-space: nowrap;
+
+        &:not(:last-child) {
+            margin-right: 8px;
+        }
+
+        &:focus {
+            border-color: #773FFF;
+        }
+
+        &.active {
+            color: #fff;
+            background: #773FFF;
+        }
+    }
+}

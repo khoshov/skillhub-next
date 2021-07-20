@@ -1,0 +1,35 @@
+@import "../../../styles/media";
+
+:local {
+    .filters {
+        max-width: 656px;
+        margin: 24px 0 48px;
+
+        @include media("max", "md") {
+            overflow-x: scroll;
+            display: flex;
+        }
+    }
+
+    .description {
+        font-family: 'Roboto', sans-serif;
+        font-size: 16px;
+        color: #101019;
+        opacity: 0.4;
+        margin: 14px 0 24px;
+        line-height: 18px;
+    }
+
+    .title {
+        font-family: 'Roboto', sans-serif;
+        font-size: 40px;
+        line-height: 24px;
+        color: #101019;
+        margin-top: 57px;
+    }
+
+    .container {
+        display: flex;
+        align-items: center;
+    }
+}
