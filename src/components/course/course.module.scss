@@ -1,0 +1,126 @@
+:local {
+    .container {
+        background: #F3F5F8;
+        padding: 24px;
+        margin-bottom: 4px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    .course {
+        display: flex;
+        font-size: 16px;
+        font-family: 'Roboto', sans-serif;
+    }
+
+    .title {
+        font-style: normal;
+        font-weight: normal;
+        font-size: 20px;
+        line-height: 20px;
+        margin-bottom: 16px;
+    }
+
+    .leftColumn {
+        min-width: 296px;
+        margin-right: 128px;
+        font-size: inherit;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+
+    .schoolName {
+        color: #773FFF;
+        font-family: 'Roboto', sans-serif;
+        line-height: 24px;
+        min-width: 81px;
+        margin-right: 55px;
+        font-size: inherit;
+    }
+
+    .duration {
+        width: 108px;
+        margin-right: 73px;
+        font-size: inherit;
+    }
+
+    .startDate {
+        width: 84px;
+        margin-right: 44px;
+        font-size: inherit;
+    }
+
+    .date {
+        width: 84px;
+        font-size: inherit;
+    }
+
+    .type {
+        position: relative;
+        height: 24px;
+        margin-right: 33px;
+        width: 57px;
+        font-size: inherit;
+
+        &::before {
+            position: absolute;
+            content: '';
+            background: #101019;
+            opacity: 0.3;
+            width: 8px;
+            height: 8px;
+            left: -14px;
+            top: 50%;
+            transform: translateY(-50%);
+            border-radius: 100%;
+        }
+    }
+
+    .active {
+        &::before {
+            background: #773FFF;
+            opacity: 1;
+        }
+    }
+
+    .level {
+        min-width: 133px;
+        margin-right: 36px;
+        font-size: inherit;
+    }
+
+    .bold {
+        font-weight: 700;
+    }
+
+    .price {
+        width: 160px;
+    }
+
+    .moreAboutCourse {
+        color: #773FFF;
+        font-size: inherit;
+        line-height: 24px;
+        position: relative;
+        padding: 0;
+
+        &:after {
+            content: "";
+            position: absolute;
+            background: url('./img/back.svg') no-repeat;
+            width: 14px;
+            height: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            margin-left: 9px;
+        }
+
+        &.active::after {
+            transform: translateY(-50%) rotate(180deg); 
+        }
+    }
+}

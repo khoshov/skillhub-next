@@ -1,0 +1,44 @@
+:local {
+    .row {
+        display: flex;
+        margin: 40px 0 16px 24px;
+    }
+
+    .name {
+        font-size: 16px;
+        line-height: 24px;
+        color: #101019;
+        opacity: 0.3;
+        white-space: nowrap;
+
+        &:nth-child(1) {
+            min-width: 296px;
+            margin-right: 128px;
+        }
+
+        &:nth-child(2) {
+            min-width: 81px;
+            margin-right: 39px;
+        }
+
+        &:nth-child(3) {
+            margin-right: 45px;
+            min-width: 57px;
+        }
+
+        &:nth-child(4) {
+            min-width: 138px;
+            margin-right: 33px;
+        }
+
+        &:nth-child(5) {
+            min-width: 84px;
+            margin-right: 44px;
+        }
+
+        &:nth-child(6) {
+            min-width: 108px;
+            margin-right: 63px;
+        }
+    }
+}

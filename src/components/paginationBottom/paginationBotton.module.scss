@@ -1,0 +1,20 @@
+:local {
+  .showMore {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #773FFF;
+    width: 216px;
+    height: 48px;
+    border: 1px solid #E0E1E2;
+    border-radius: 8px;
+    margin: 0 auto;
+  }
+
+  .pagination {
+    margin-top: 16px;
+  }
+}
