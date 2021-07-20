@@ -28,23 +28,15 @@ const edges = [
     }
 ]
 
-export const Menu = ({state, menuAction: testMenuAction}) => {
-    React.useEffect(() => {
-        testMenuAction([{name: 'name1', slug: 'name1', children: {name: 'name sub 1'}}, {name: 'name 2'}])
-    }, [])
+export const Menu = ({list = []}) => {
     const {route} = useRouter();
-    console.log('state', state)
-    console.log('menu', state.reducerMenu)
-    const menus = state.reducerMenu.menus;
-    console.log('menus', menus)
-    console.log('edges', edges)
 
     return (
         <nav className={s.menu}>
             <ul className={s.menuList}>
-                {edges
-                    .sort((a, b) => a.node.sortOrder - b.node.sortOrder)
-                    .map(({node: {name, children, slug}}) => (
+                {list
+                    .sort((a, b) => a.sort_order - b.sort_order)
+                    .map(({children, slug, name}) => (
                         <Fragment key={name}>
                             <li
                                 className={classNames(s.menuListItem, {
@@ -55,7 +47,7 @@ export const Menu = ({state, menuAction: testMenuAction}) => {
                                     <a className={s.link}>{name}</a>
                                 </Link>
                                 <ul className={s.subMenuList}>
-                                    {children.edges.map(({node: {name: childNode}}) => (
+                                    {children.map(({name: childNode}) => (
                                             <li className={s.subMenuListItem} key={childNode}>
                                                 <Link
                                                     href={{
@@ -80,7 +72,7 @@ export const Menu = ({state, menuAction: testMenuAction}) => {
 };
 
 const mapStateToProps = state => ({
-    state: state
+    list: state.categories.results
 })
 
 export const MainMenu = connect(mapStateToProps, {menuAction})(Menu)

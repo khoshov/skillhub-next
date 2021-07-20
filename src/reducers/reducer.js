@@ -2,11 +2,9 @@ import {createAction, createReducer} from 'redux-act';
 
 export const testAction = createAction('testAction');
 export const testAction1 = createAction('testAction1', (res) => {
-    console.log('res', res)
     return res
 });
 export const menuAction = createAction('menuAction', (resMenu) => {
-    console.log('resMenu', resMenu)
     return resMenu
 });
 

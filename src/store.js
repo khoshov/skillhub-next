@@ -1,13 +1,12 @@
 import { createStore, applyMiddleware, compose, combineReducers } from "redux"
-import thunk from "redux-thunk"
+import thunkMiddleware from 'redux-thunk';
 import { createWrapper } from "next-redux-wrapper"
-import {reducer, reducer1, reducerMenu} from "./reducers/reducer"
+import {rootReducer} from './reducers';
 
-const middleware = [thunk]
-const reducers = combineReducers({reducer, reducer1, reducerMenu});
+const createStoreWithMiddleware = applyMiddleware(
+    thunkMiddleware
+)(createStore);
 
-const makeStore = () => createStore(reducers, compose(applyMiddleware(...middleware)))
-console.log('makeStore', makeStore)
-// console.log('store', store.getState())
+const makeStore = () => createStoreWithMiddleware(rootReducer);
 
 export const wrapper = createWrapper(makeStore)
