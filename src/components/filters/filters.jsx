@@ -8,9 +8,9 @@ import {Input} from './input/input';
 import {setFilters} from 'reducers/filters/filters';
 
 import s from './filters.module.scss';
-import {connect} from "react-redux";
-import {setCategories} from "../../reducers/categories/categories";
-import {Header} from "../header/header";
+import {connect} from 'react-redux';
+import {setCategories} from '../../reducers/categories/categories';
+import {Header} from '../header/header';
 
 const inputs = [
     {
@@ -47,7 +47,6 @@ const allFormats = [
 export const Filters = ({listCategories = [], setFilter, filterState}) => {
     const router = useRouter();
     const {category} = router.query;
-    console.log(filterState)
     const foundNode = listCategories.find(({slug}) => slug.toLowerCase() === category);
 
     if (!foundNode) return null;
@@ -59,20 +58,18 @@ export const Filters = ({listCategories = [], setFilter, filterState}) => {
             <h3 className={s.title}>{foundNode.name}</h3>
             <p className={s.description}>{foundNode.description}</p>
             <div className={s.filters}>
-                {[{name: 'Все', id: ''}, ...foundNode.children].map(
-                    ({name, id}) => {
-                        return (
-                            <FilterButton
-                                key={id + name}
-                                name={name}
-                                isActive={name === filterState.name}
-                                setFilter={setFilter}
-                                setCategoryId={setCategoryId}
-                                id={id}
-                            />
-                        );
-                    },
-                )}
+                {[{name: 'Все', id: ''}, ...foundNode.children].map(({name, id}) => {
+                    return (
+                        <FilterButton
+                            key={id + name}
+                            name={name}
+                            isActive={name === filterState.name}
+                            setFilter={setFilter}
+                            setCategoryId={setCategoryId}
+                            id={id}
+                        />
+                    );
+                })}
             </div>
 
             <div className={s.container}>
@@ -113,9 +110,9 @@ export const Filters = ({listCategories = [], setFilter, filterState}) => {
     );
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
     listCategories: state.categories.results,
     filterState: state.filters,
-})
+});
 
-export const FiltersConnected = connect(mapStateToProps, {setFilter: setFilters})(Filters)
+export const FiltersConnected = connect(mapStateToProps, {setFilter: setFilters})(Filters);

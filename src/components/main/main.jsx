@@ -6,7 +6,6 @@ import {Promo} from 'components/promo/promo';
 import s from './main.module.scss';
 
 export const Main = () => {
-
     return (
         <main className={s.main}>
             <Grid>

@@ -8,12 +8,14 @@ export const Promo = () => {
         <section className={s.promo}>
             <div className={s.promoWrapper}>
                 <div className={s.promoTextColumn}>
-                    <h1 className={s.promoTextTitle}>Сравниваем <br/> онлайн-курсы <br/> в сфете IT</h1>
+                    <h1 className={s.promoTextTitle}>
+                        Сравниваем <br /> онлайн-курсы <br /> в сфете IT
+                    </h1>
                     <p className={s.promoTextDescription}>
-                        Чтобы вы, с лёгкостью могли подобрать <br/>
+                        Чтобы вы, с лёгкостью могли подобрать <br />
                         для себя лучший курс из сотни предложений.
                     </p>
-                    <Button/>
+                    <Button />
                 </div>
                 <div className={s.promoImgColumn}>
                     <img className={s.promoImg} src="./images/1.png" alt="promo" />

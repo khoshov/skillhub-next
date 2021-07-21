@@ -1,5 +1,5 @@
 import React, {Fragment} from 'react';
-import { connect } from "react-redux"
+import {connect} from 'react-redux';
 
 import Link from 'next/link';
 import classNames from 'classnames';
@@ -27,20 +27,19 @@ export const Menu = ({list = []}) => {
                                 </Link>
                                 <ul className={s.subMenuList}>
                                     {children.map(({name: childNode}) => (
-                                            <li className={s.subMenuListItem} key={childNode}>
-                                                <Link
-                                                    href={{
-                                                        pathname: slug.toLowerCase(),
-                                                        query: {
-                                                            name: childNode.replace(/ /gi, '_'),
-                                                        },
-                                                    }}
-                                                >
-                                                    <a>{childNode}</a>
-                                                </Link>
-                                            </li>
-                                        )
-                                    )}
+                                        <li className={s.subMenuListItem} key={childNode}>
+                                            <Link
+                                                href={{
+                                                    pathname: slug.toLowerCase(),
+                                                    query: {
+                                                        name: childNode.replace(/ /gi, '_'),
+                                                    },
+                                                }}
+                                            >
+                                                <a>{childNode}</a>
+                                            </Link>
+                                        </li>
+                                    ))}
                                 </ul>
                             </li>
                         </Fragment>
@@ -50,8 +49,8 @@ export const Menu = ({list = []}) => {
     );
 };
 
-const mapStateToProps = state => ({
-    list: state.categories.results
-})
+const mapStateToProps = (state) => ({
+    list: state.categories.results,
+});
 
-export const MainMenu = connect(mapStateToProps)(Menu)
+export const MainMenu = connect(mapStateToProps)(Menu);
