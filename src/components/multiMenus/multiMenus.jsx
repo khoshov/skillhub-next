@@ -5,113 +5,13 @@ import {LanguageMobile} from '../languageMobile/languageMobile';
 import {SearchMobile} from '../searchMobile/searchMobile';
 
 import s from './multiMenus.module.scss';
+import {connect} from "react-redux";
 
-const menus = [
-    {
-        name: 'backend',
-        link: '/backend',
-    },
-    {
-        name: 'frontend',
-        link: '/front',
-        submenu: [
-            {
-                name: 'CSS',
-                link: '/css',
-            },
-            {
-                name: 'HTML',
-                link: '/html',
-            },
-        ],
-    },
-    {
-        name: 'Design',
-        link: '/design',
-        submenu: [
-            {
-                name: 'Figma',
-                link: '/figma',
-                submenu: [
-                    {
-                        name: 'Boom 1',
-                        link: '/boom',
-                    },
-                    {
-                        name: 'Boom 2',
-                        link: '/boom 2',
-                    },
-                ],
-            },
-            {
-                name: 'Photoshop',
-                link: '/photoshop',
-                submenu: [
-                    {
-                        name: 'Deep 1',
-                        link: '/deep',
-                    },
-                    {
-                        name: 'Deep 2',
-                        link: '/deep 2',
-                        submenu: [
-                            {
-                                name: 'Lorem 1',
-                                link: 'lorem',
-                            },
-                            {
-                                name: 'Lorem 2',
-                                link: 'lorem 2',
-                                submenu: [
-                                    {
-                                        name: 'Super Deep',
-                                        link: 'super deep',
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                ],
-            },
-            {
-                name: 'Sketch',
-                link: 'sketch',
-            },
-            {
-                name: 'Gimp',
-                link: '/gimp',
-                submenu: [
-                    {
-                        name: 'Last 1',
-                        link: 'last 1',
-                    },
-                    {
-                        name: 'Last 2',
-                        link: 'last 2',
-                    },
-                    {
-                        name: 'Last 3',
-                        link: 'last 3',
-                    },
-                ],
-            },
-        ],
-    },
-    {
-        name: 'Devops',
-        link: '/dev',
-    },
-];
-
-export const MultiMenus = ({edges}) => {
+export const MultiMenus = ({list = []}) => {
     const [activeMenus, setActiveMenus] = useState([]);
     const dropdownRef = useRef(null);
     const [isActive, setIsActive] = useState(false);
     const onClick = () => setIsActive(!isActive);
-
-    // const handleMenuClick = (data) => {
-    //     console.log(data.link);
-    // };
 
     const handleArrowClick = (menuName) => {
         let newActiveMenus = [...activeMenus];
@@ -128,14 +28,14 @@ export const MultiMenus = ({edges}) => {
         setActiveMenus(newActiveMenus);
     };
 
-    const ListItem = ({dept, data, hasSubMenu, menuName, menuIndex}) => (
-        <li className={classnames(s.linkWrapper, {[s.subMenu]: hasSubMenu})}>
-            <Link dept={dept} href={data.link}>
+    const ListItem = ({dept, data, menuName, menuIndex}) => (
+        <li className={classnames(s.linkWrapper, {[s.subMenu]: Boolean(data.children)})}>
+            <Link dept={dept} href={`/${data.slug}`}>
                 <Fragment>
-                    <label onClick={() => handleMenuClick(data)}>
-                        <a href={data.link}>{data.name}</a>
+                    <label>
+                        <a href={`/${data.slug}`}>{data.name}</a>
                     </label>
-                    {hasSubMenu && (
+                    {Boolean(data.children) && (
                         <span className={s.arrow} onClick={() => handleArrowClick(menuName)} />
                     )}
                 </Fragment>
@@ -143,15 +43,15 @@ export const MultiMenus = ({edges}) => {
             <Link
                 dept={dept}
                 href={{
-                    pathname: data.link,
-                    query: data.link,
+                    pathname: `/${data.slug}`,
+                    query: `${data.slug}`,
                 }}
             >
                 <Fragment>
-                    {hasSubMenu && (
+                    {Boolean(data.children) && (
                         <SubMenu
                             dept={dept}
-                            data={data.submenu}
+                            data={data.children}
                             toggle={activeMenus.includes(menuName)}
                             menuIndex={menuIndex}
                         />
@@ -167,7 +67,6 @@ export const MultiMenus = ({edges}) => {
         }
 
         dept = dept + 1;
-
         return (
             <ul>
                 {data.map((menu, index) => {
@@ -177,7 +76,6 @@ export const MultiMenus = ({edges}) => {
                         <ListItem
                             dept={dept}
                             data={menu}
-                            hasSubMenu={menu.submenu}
                             menuName={menuName}
                             key={menuName}
                             menuIndex={index}
@@ -207,7 +105,7 @@ export const MultiMenus = ({edges}) => {
                 <SearchMobile />
 
                 <ul className={s.mobileMenuList}>
-                    {menus.map((menu, index) => {
+                    {list.map((menu, index) => {
                         const dept = 1;
                         const menuName = `sidebar-menu-${dept}-${index}`;
 
@@ -215,7 +113,7 @@ export const MultiMenus = ({edges}) => {
                             <ListItem
                                 dept={dept}
                                 data={menu}
-                                hasSubMenu={menu.submenu}
+                                hasSubMenu={Boolean(menu.children)}
                                 menuName={menuName}
                                 key={menuName}
                                 menuIndex={index}
@@ -229,3 +127,9 @@ export const MultiMenus = ({edges}) => {
         </div>
     );
 };
+
+const mapStateToProps = (state) => ({
+    list: state.categories.results,
+});
+
+export const MultiMenusConnected = connect(mapStateToProps)(MultiMenus);
