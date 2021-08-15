@@ -1,9 +1,11 @@
 @import "../../../styles/media";
+@import "../../../styles/variables";
 
 :local {
    .menu {
       padding: 0 10px;
-      font-family: 'Roboto', sans-serif;  
+      font-weight: 400;
+      font-family: $font-inter;
 
       @include media("max", "md") {
          display: none;
@@ -27,10 +29,10 @@
       &:after {
          content: ''; 
          position: absolute; 
-         right: -25px;
-         bottom: 21px;
+         right: 10px;
+         bottom: 22px;
          border: 6px solid transparent;
-         border-top: 6px solid #ffffff;
+         border-top: 6px solid $white;
          border-radius: 3px;
 
          @include media("max", "lg") {
@@ -52,16 +54,16 @@
          transition: opacity .3s ease-out;
 
          &:before {
-            background-color: #773FFF;
+            background-color: $main-violet;
          }
       }
 
-      &:hover {
+      &:hover, &:focus {
          opacity: 1;
          transition: opacity .3s ease-out;
 
          &:before {
-            background-color: #773FFF;
+            background-color: $main-violet;
          }
 
          .subMenuList {
@@ -73,7 +75,7 @@
             padding: 16px;
             min-width: 208px;
             border-radius: 14px;
-            background-color: #10101A;
+            background-color: $main-black;
 
             &:before {
                content: '';
@@ -103,11 +105,29 @@
       }
    }
 
-   .menuList .menuListItem:not(:last-child) {
-      margin-right: 50px;
+   .menuList .menuListItem {
+      //padding-right: 50px;
+      padding-right: 30px;
+      margin-right: 20px;
 
       @include media("max", "lg") {
-         margin-right: 20px;
+         padding-right: 20px;
+      }
+   }
+
+   .disabled {
+      &:after {
+         display: none;
+      }
+
+      &.menuListItem {
+         padding-right: 0;
+         margin-right: 50px;
+
+         @include media("max", "lg") {
+            padding-right: 0;
+            margin-right: 20px;
+         }
       }
    }
 

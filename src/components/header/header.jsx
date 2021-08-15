@@ -17,7 +17,7 @@ export const Header = () => (
                     </a>
                 </Link>
                 <MenuAndMobileMenu />
-                <Search />
+                {/*<Search /> TO-DO будет позже */}
             </div>
         </Grid>
     </header>

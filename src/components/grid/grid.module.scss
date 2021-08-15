@@ -6,12 +6,16 @@
         min-width: 375px;
         width: 100%;
         margin: 0 auto;
-        padding-left: 56px;
-        padding-right: 56px;
+        padding-left: 47px;
+        padding-right: 47px;
 
+        @include media("max", "xxl") {
+            padding-left: 32px;
+            padding-right: 32px;
+        }
         @include media("max", "md") {
             padding-left: 25px;
             padding-right: 25px;
-         }
+        }
     }
 }
