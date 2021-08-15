@@ -22,6 +22,7 @@
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-react-hooks": "^4.2.0",
     "eslint-restricted-globals": "^0.2.0",
+    "name": "0.0.2",
     "next": "11.0.1",
     "next-redux-wrapper": "^7.0.2",
     "react": "17.0.2",

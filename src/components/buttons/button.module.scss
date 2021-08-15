@@ -1,14 +1,16 @@
 @import "../../../styles/media";
+@import "../../../styles/variables";
 
 :local {
   .button {
-    padding: 16px 34px;
+    padding: 16px 32px;
     box-sizing: border-box;
     border-radius: 14px;
     font-size: 20px;
     line-height: 100%;
-    background: #773FFF;
-    color: #E0E1E2;
+    background: $main-violet;
+    color: $white;
+    font-family: $font-inter;
 
     @include media("max", "sm") {
      min-width: 100%;

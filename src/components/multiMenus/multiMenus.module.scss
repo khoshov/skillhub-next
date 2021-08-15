@@ -1,4 +1,5 @@
 @import "../../../styles/media";
+@import "../../../styles/variables";
 
 :local {
    .Hamburger {
@@ -18,14 +19,14 @@
    .humburgerElement {
       width: 14px;
       height: 2px;
-      background-color: #ffffff;
+      background-color: $white;
 
       &:not(:last-child) {
          margin-bottom: 5px;
       }
 
       &.humburgerElementActive {
-         background-color: #773FFF;
+         background-color: $main-violet;
       }
    }
 
@@ -34,8 +35,8 @@
       margin-left: auto;
       margin-right: 10px;
       font-size: 16px;
-      color: #ffffff;
-      font-family: 'Roboto', sans-serif;
+      color: $white;
+      font-family: $font-inter;
 
       @include media("max", "md") {
          display: inline-block;
@@ -98,30 +99,35 @@
          right: 0;
          bottom: 1px;
          border: 6px solid transparent;
-         border-top: 6px solid #773FFF;
+         border-top: 6px solid $main-violet;
          border-radius: 3px;
       }
    }
 
    .menuContainer {
+      min-width: 112px;
+
+      @include media("max", "xxl") {
+         min-width: 44px;
+      }
       @include media("max", "md") {
          margin-left: auto;
       }
    }
 
    .menu {
-      background: #10101A;
+      background: $main-black;
       border-radius: 8px;
       position: absolute;
       top: 63px;
       left: 0;
       width: 100%;
       padding-bottom: 20px;
-      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 5px 10px rgba(0, 0, 0, .3);
       opacity: 0;
       visibility: hidden;
       transform: translate(0, -20px);
-      transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
+      transition: opacity .4s ease, transform .4s ease, visibility .4s;
 
       &::before {
          content: '';
@@ -132,7 +138,7 @@
          z-index: -1;
          top: -3%;
          left: -25px;
-         background-color: #10101A;
+         background-color: $main-black;
       }
       &::after {
          content: '';
@@ -143,7 +149,7 @@
          z-index: -1;
          top: -3%;
          right: -25px;
-         background-color: #10101A;
+         background-color: $main-black;
       }
    }
 
@@ -153,7 +159,7 @@
       transform: translate(0, 0);
 
       body {
-         background: rgba(0, 0, 0, 0.3);
+         background: rgba(0, 0, 0, .3);
       }
    }
 }

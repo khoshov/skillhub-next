@@ -1,10 +1,14 @@
 @import "../../../styles/media";
+@import "../../../styles/variables";
 
 :local {
    .promo {
-      margin: 145px 0 0;
+      margin: 129px 0 0;
       height: 600px;
 
+      @include media("max", "xxl") {
+         margin: 86px 0 0;
+      }
       @include media("max", "xl") {
          height: 400px;
       }
@@ -42,11 +46,14 @@
    .promoTextTitle {
       margin-bottom: 30px;
       font-size: 80px;
-      line-height: 100%;
-      font-weight: 400;
-      color: #101019;
-      font-family: 'Roboto', sans-serif;  
+      line-height: 110%;
+      font-weight: 600;
+      color: $main-black;
+      font-family: $font-inter;
 
+      @include media("max", "xxl") {
+         margin-bottom: 32px;
+      }
       @include media("max", "xl") {
          font-size: 44px;
       }
@@ -56,11 +63,12 @@
    }
 
    .promoTextDescription {
-      padding-bottom: 60px;
+      padding-bottom: 73px;
       font-size: 20px;
       line-height: 24px;
-      color: #101019;
-      font-family: 'Roboto', sans-serif;  
+      color: $main-black;
+      font-weight: 600;
+      font-family: $font-inter;
 
       @include media("max", "md") {
          font-size: 20px;
@@ -84,12 +92,14 @@
       position: absolute;
       top: 50%;
       left: 50%;
-      //transform: translate(-50%, -50%);
-      transform: translate(-60%, -47%);
+      transform: translate(-62%, -43%);
       width: 100%;
-      //min-width: 145%;
-      min-width: 1000px;
+      min-width: 1002px;
 
+      @include media("max", "xxl") {
+         transform: translate(-60.6%, -44.8%);
+         min-width: 860px;
+      }
       @include media("max", "xl") {
          top: 57%;
          min-width: 600px;
