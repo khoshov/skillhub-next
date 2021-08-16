@@ -5,7 +5,7 @@ import {LanguageMobile} from '../languageMobile/languageMobile';
 import {SearchMobile} from '../searchMobile/searchMobile';
 
 import s from './multiMenus.module.scss';
-import {connect} from "react-redux";
+import {connect} from 'react-redux';
 
 export const MultiMenus = ({list = []}) => {
     const [activeMenus, setActiveMenus] = useState([]);
